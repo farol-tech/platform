@@ -68,7 +68,7 @@ const Register = () => {
 
     return (
         <NotAuthenticatedLayout image="/assets/login_image.svg" width={500} height={292}>
-            <div className="px-7 py-4 flex flex-col gap-2 w-3/4">
+            <div className="py-4 flex flex-col gap-2 w-1/2">
                 <h2 className="text-2xl font-bold">Cadastro</h2>
                 <InputComponent
                     title="Email"

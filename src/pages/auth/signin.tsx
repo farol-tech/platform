@@ -68,7 +68,7 @@ const LoginPage = () => {
 
     return (
         <NotAuthenticatedLayout image="/assets/login_image.svg" width={500} height={292}>
-            <div className="px-7 py-4 flex flex-col gap-2 w-3/4">
+            <div className="py-4 flex flex-col gap-2 w-1/2">
                 <h2 className="text-2xl font-bold">Login</h2>
                 <InputComponent
                     title="Email"
@@ -92,7 +92,7 @@ const LoginPage = () => {
                     setValue={setChecked}
                 />
                 <ButtonComponent text="Login" loading={loadingSubmit} clickFunction={onSubmit} error={signInError}/>
-                <p className='text-medium'> <Link href={"/auth/redefine"}>Esqueci minha senha </Link>| <Link href={"/auth/register"}>Cadastre-se</Link></p>
+                <p className='text-medium'> <Link href={"/auth/redefine/send"}>Esqueci minha senha </Link>| <Link href={"/auth/register"}>Cadastre-se</Link></p>
             </div>
         </NotAuthenticatedLayout>
     );
