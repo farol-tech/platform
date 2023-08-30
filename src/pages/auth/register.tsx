@@ -20,6 +20,13 @@ const Register = () => {
     const [signInError, setSignInError] = useState("");
     const [nome, setNome] = useState("");
     const [nomeError, setNomeError] = useState("");
+    const [cnpj, setCnpj]  = useState("");
+    const [cnpjError, setCnpjError]= useState("");
+    const [endereco, setEndereco] = useState("");
+    const [enderecoError, setEnderecoError] = useState("");
+    const [webSite, setWebsite] = useState("");
+    const [estado, setEstado] = useState("");
+    const [estadoError, setEstadoError] = useState("");
     const [loadingSubmit, setLoadingSubmit] = useState(false);
 
     const mutation = api.user.create.useMutation()
@@ -36,6 +43,24 @@ const Register = () => {
             flag = false;
         } else
             setNomeError("");
+        if (!cnpj){
+            setCnpjError("Digite o CNPJ da empresa antes de continuar")
+            flag = false;
+        } else{
+            setCnpjError("");
+        }
+        if (!estado){
+            setEstadoError("Digite o Estado da sede da empresa antes de continuar")
+            flag = false;
+        } else{
+            setEstadoError("");
+        }
+        if (!endereco){
+            setEnderecoError("Digite um Endereço para a sede da empresa antes de continuar")
+            flag = false;
+        } else{
+            setEnderecoError("");
+        }
         if (!pass) {
             setPassError("Digite uma senha antes de continuar");
             flag = false;
@@ -58,14 +83,14 @@ const Register = () => {
         setLoadingSubmit(true);
 
         try { 
-            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome });
+            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome }); //Falta mexer aqui, e mudar o modelo de user do banco de dados
         } catch{
             setSignInError("Error interno. Nos contate para resolvermos.")
         }
 
         setLoadingSubmit(false);
     };
-
+    //Consertar Layout da página
     return (
         <NotAuthenticatedLayout image="/assets/login_image.svg" width={500} height={292}>
             <div className="py-4 flex flex-col gap-2 w-1/2">
@@ -83,6 +108,38 @@ const Register = () => {
                     placeholder="Nome da Empresa"
                     setValue={setNome}
                     error={nomeError}
+                />
+                <InputComponent
+                    title="CNPJ"
+                    type="text"
+                    placeholder="XX.XXX.XXX/0001-XX"
+                    setValue={setCnpj}
+                    icon={<HiOutlineEye />}
+                    error={cnpjError}
+                />
+                <InputComponent
+                    title="Estado da Sede"
+                    type="text"
+                    placeholder="Amazonas"
+                    setValue={setEstado}
+                    icon={<HiOutlineEye />}
+                    error={estadoError}
+                />
+                <InputComponent
+                    title="Endereço"
+                    type="text"
+                    placeholder="São José dos Campos. DCTA, r. H8C apto. 103E"
+                    setValue={setEndereco}
+                    icon={<HiOutlineEye />}
+                    error={enderecoError}
+                />
+                <InputComponent
+                    title="Website"
+                    type="text"
+                    placeholder="https://dummyPlaceholder.com"
+                    setValue={setWebsite}
+                    icon={<HiOutlineEye />}
+                    error={""}
                 />
                 <InputComponent
                     title="Senha"
