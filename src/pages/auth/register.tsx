@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import InputComponent from "~/components/common/input/input";
+import InputSelect from "~/components/common/input/input";
 import CheckboxComponent from "~/components/common/checkbox/checkbox";
 import ButtonComponent from "~/components/common/button/buttton";
 import { HiOutlineEye } from "react-icons/hi";
@@ -24,7 +25,7 @@ const Register = () => {
     const [cnpjError, setCnpjError]= useState("");
     const [endereco, setEndereco] = useState("");
     const [enderecoError, setEnderecoError] = useState("");
-    const [webSite, setWebsite] = useState("");
+    const [website, setWebsite] = useState("");
     const [estado, setEstado] = useState("");
     const [estadoError, setEstadoError] = useState("");
     const [loadingSubmit, setLoadingSubmit] = useState(false);
@@ -83,18 +84,19 @@ const Register = () => {
         setLoadingSubmit(true);
 
         try { 
-            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome }); //Falta mexer aqui, e mudar o modelo de user do banco de dados
+            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website }); //Falta mexer aqui, e mudar o modelo de user do banco de dados
         } catch{
             setSignInError("Error interno. Nos contate para resolvermos.")
         }
-
+        
         setLoadingSubmit(false);
     };
     //Consertar Layout da página
     return (
         <NotAuthenticatedLayout image="/assets/login_image.svg" width={500} height={292}>
             <div className="py-4 flex flex-col gap-2 w-1/2">
-                <h2 className="text-2xl font-bold">Cadastro</h2>
+                <h2 className="text-3xl font-bold">Cadastro</h2>
+                <br></br>
                 <InputComponent
                     title="Email"
                     type="email"
@@ -114,7 +116,6 @@ const Register = () => {
                     type="text"
                     placeholder="XX.XXX.XXX/0001-XX"
                     setValue={setCnpj}
-                    icon={<HiOutlineEye />}
                     error={cnpjError}
                 />
                 <InputComponent
@@ -122,7 +123,6 @@ const Register = () => {
                     type="text"
                     placeholder="Amazonas"
                     setValue={setEstado}
-                    icon={<HiOutlineEye />}
                     error={estadoError}
                 />
                 <InputComponent
@@ -130,7 +130,6 @@ const Register = () => {
                     type="text"
                     placeholder="São José dos Campos. DCTA, r. H8C apto. 103E"
                     setValue={setEndereco}
-                    icon={<HiOutlineEye />}
                     error={enderecoError}
                 />
                 <InputComponent
@@ -138,7 +137,6 @@ const Register = () => {
                     type="text"
                     placeholder="https://dummyPlaceholder.com"
                     setValue={setWebsite}
-                    icon={<HiOutlineEye />}
                     error={""}
                 />
                 <InputComponent
@@ -146,7 +144,7 @@ const Register = () => {
                     type="password"
                     placeholder="Senha"
                     setValue={setPass}
-                    icon={<HiOutlineEye />}
+                    //icon={<HiOutlineEye />}
                     error={passError}
                 />
                 <InputComponent
@@ -154,11 +152,11 @@ const Register = () => {
                     type="password"
                     placeholder="Senha"
                     setValue={setPassConfirmation}
-                    icon={<HiOutlineEye />}
+                    //icon={<HiOutlineEye />}
                     error={passConfirmationError}
                 />
                 <ButtonComponent text="Cadastro" clickFunction={onSubmit} loading={loadingSubmit} error={signInError}/>
-               <p className='text-medium'> <Link href={"/auth/signin"}> Já tenho conta </Link></p>
+               <p className='text-medium'> <Link href={"/auth/signin"} className="hover:underline"> Já tenho conta </Link></p>
             </div>
         </NotAuthenticatedLayout>
     );

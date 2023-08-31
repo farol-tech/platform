@@ -10,7 +10,7 @@ import hashPassword from '~/utils/user_hash'
 export const userRouter = createTRPCRouter({
 
   create: publicProcedure
-    .input(z.object({email: z.string(), senha: z.string(), nome_fantasia: z.string()}))
+    .input(z.object({email: z.string(), senha: z.string(), nome_fantasia: z.string(), cnpj: z.string(), estado:z.string(), endereco:z.string(), website:z.string()}))
     .mutation( async ({ctx, input}) => {
         const hashedPassword = await hashPassword(input.senha)
 
@@ -18,7 +18,11 @@ export const userRouter = createTRPCRouter({
             data: {
               email: input.email,
               senha: hashedPassword,
-              nome_fantasia: input.nome_fantasia
+              nome_fantasia: input.nome_fantasia,
+              cnpj: input.cnpj,
+              estado: input.estado,
+              endereco: input.endereco,
+              website: input.website
             },
           });
     }),

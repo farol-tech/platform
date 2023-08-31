@@ -50,6 +50,10 @@ model User {
     nome_fantasia   String
     email           String    @unique
     senha           String
+    cnpj            String    @unique
+    estado          String
+    endereco        String
+    website         String?
     emailVerificado DateTime?
     image           String?
     accounts        Account[]
