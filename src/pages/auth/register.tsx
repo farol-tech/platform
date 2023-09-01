@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputComponent from "~/components/common/input/input";
-import InputSelect from "~/components/common/input/input";
+import MaskedInputComponent from "~/components/common/input/maskedInput";
+import SelectInputComponent from "~/components/common/input/selectInput";
 import CheckboxComponent from "~/components/common/checkbox/checkbox";
 import ButtonComponent from "~/components/common/button/buttton";
 import { HiOutlineEye } from "react-icons/hi";
@@ -9,6 +10,7 @@ import validator from 'validator';
 import { api } from "~/utils/api";
 import NotAuthenticatedLayout from "~/layouts/notAuthenticatedLayout";
 import Link from "next/link";
+import {useRouter}  from 'next/navigation';
 
 
 const Register = () => {
@@ -30,6 +32,37 @@ const Register = () => {
     const [estadoError, setEstadoError] = useState("");
     const [loadingSubmit, setLoadingSubmit] = useState(false);
 
+    const allStates = [
+        {value: "Acre", label: "Acre"},
+        {value: "Alagoas", label: "Alagoas"},
+        {value: "Amapá", label: "Amapá"},
+        {value: "Amazonas", label: "Amazonas"},
+        {value: "Bahia", label: "Bahia"},
+        {value: "Ceará", label: "Ceará"},
+        {value: "Distrito Federal", label: "Distrito Federal"},
+        {value: "Espírito Santo", label: "Espírito Santo"},
+        {value: "Goiás", label: "Goiás"},
+        {value: "Maranhão", label: "Maranhão"},
+        {value: "Mato Grosso", label: "Mato Grosso"},
+        {value: "Mato Grosso do Sul", label: "Mato Grosso do Sul"},
+        {value: "Minas Gerais", label: "Minas Gerais"},
+        {value: "Pará", label: "Pará"},
+        {value: "Paraíba", label: "Paraíba"},
+        {value: "Paraná", label: "Paraná"},
+        {value: "Pernambuco", label: "Pernambuco"},
+        {value: "Piauí", label: "Piauí"},
+        {value: "Rio de Janeiro", label: "Rio de Janeiro"},
+        {value: "Rio Grande do Norte", label: "Rio Grande do Norte"},
+        {value: "Rio Grande do Sul", label: "Rio Grande do Sul"},
+        {value: "Rondônia", label: "Rondônia"},
+        {value: "Roraima", label: "Roraima"},
+        {value: "Santa Catarina", label: "Santa Catarina"},
+        {value: "São Paulo", label: "São Paulo"},
+        {value: "Sergipe", label: "Sergipe"},
+        {value: "Tocantins", label: "Tocantins"}
+    ];
+
+    const router = useRouter();
     const mutation = api.user.create.useMutation()
 
     const validate = () => {
@@ -44,14 +77,14 @@ const Register = () => {
             flag = false;
         } else
             setNomeError("");
-        if (!cnpj){
-            setCnpjError("Digite o CNPJ da empresa antes de continuar")
+        if (cnpj.length != 18){
+            setCnpjError("Digite um CNPJ válido antes de continuar")
             flag = false;
         } else{
             setCnpjError("");
         }
-        if (!estado){
-            setEstadoError("Digite o Estado da sede da empresa antes de continuar")
+        if (!(allStates.some(element => element.value == estado))){
+            setEstadoError("Selecione um Estado válido antes de continuar")
             flag = false;
         } else{
             setEstadoError("");
@@ -69,7 +102,7 @@ const Register = () => {
             setPassError("");
         if (passConfirmation != pass) {
             setPassConfirmationError("Senhas não são iguais");
-            flag = true;
+            flag = false;
         } else
             setPassConfirmationError("")
         return flag
@@ -82,9 +115,11 @@ const Register = () => {
             return;
 
         setLoadingSubmit(true);
-
+        
         try { 
-            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website }); //Falta mexer aqui, e mudar o modelo de user do banco de dados
+            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website });
+            router.push('/auth/verifyEmail');
+
         } catch{
             setSignInError("Error interno. Nos contate para resolvermos.")
         }
@@ -111,25 +146,26 @@ const Register = () => {
                     setValue={setNome}
                     error={nomeError}
                 />
-                <InputComponent
+                <MaskedInputComponent
+                    mask="99.999.999/9999-99"
                     title="CNPJ"
                     type="text"
-                    placeholder="XX.XXX.XXX/0001-XX"
+                    placeholder="XX.XXX.XXX/XXXX-XX"
                     setValue={setCnpj}
                     error={cnpjError}
                 />
-                <InputComponent
+                <SelectInputComponent
                     title="Estado da Sede"
-                    type="text"
-                    placeholder="Amazonas"
+                    placeholder="Selecione um Estado..."
                     setValue={setEstado}
-                    error={estadoError}
+                    options={allStates}
                 />
                 <InputComponent
                     title="Endereço"
                     type="text"
-                    placeholder="São José dos Campos. DCTA, r. H8C apto. 103E"
+                    placeholder="Endereço"
                     setValue={setEndereco}
+                    //icon={<HiOutlineEye />}
                     error={enderecoError}
                 />
                 <InputComponent
@@ -163,3 +199,11 @@ const Register = () => {
 };
 
 export default Register;
+/*
+<InputComponent
+                    title="Estado da Sede"
+                    type="text"
+                    placeholder="Amazonas"
+                    setValue={setEstado}
+                    error={estadoError}
+                />*/
