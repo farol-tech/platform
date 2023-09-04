@@ -3,7 +3,7 @@ import {
     createTRPCRouter,
     publicProcedure,
 } from "~/server/api/trpc";
-import { sendEmail, sendEmailTemplate } from "~/utils/sendgrid";
+import { sendEmail, sendEmailTemplate, sendVerificationMail } from "~/utils/sendgrid";
 
 
 export const mailRouter = createTRPCRouter({
@@ -33,6 +33,20 @@ export const mailRouter = createTRPCRouter({
                 return {
                     status: 500,
                     message: "An unknown error occurred",
+                    code: "UNKNOWN_ERROR"
+                };
+            }
+        }),
+    sendVerificationMail: publicProcedure
+        .input(z.object({to: z.string()}))
+        .mutation(async ({input}) => {
+            try{
+                const response = await sendVerificationMail(input.to);
+                return response;
+            } catch {
+                return {
+                    status: 500,
+                    message: "An unknown error ocurred",
                     code: "UNKNOWN_ERROR"
                 };
             }

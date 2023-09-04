@@ -63,7 +63,11 @@ const Register = () => {
     ];
 
     const router = useRouter();
-    const mutation = api.user.create.useMutation()
+    const mutation = api.user.create.useMutation();
+    const mailMutation = api.mail.sendVerificationMail.useMutation();
+
+    //const mailConfirmationText = "Olá, o seu código de verificação é 123456.";
+    //const mailSubject = "Confirmação de cadastro Faroltech";
 
     const validate = () => {
         let flag = true;
@@ -123,7 +127,7 @@ const Register = () => {
         } catch{
             setSignInError("Error interno. Nos contate para resolvermos.")
         }
-        
+        mailMutation.mutateAsync({to:email})
         setLoadingSubmit(false);
     };
     //Consertar Layout da página
@@ -159,6 +163,7 @@ const Register = () => {
                     placeholder="Selecione um Estado..."
                     setValue={setEstado}
                     options={allStates}
+                    error={estadoError}
                 />
                 <InputComponent
                     title="Endereço"

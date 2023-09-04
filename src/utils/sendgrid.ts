@@ -58,3 +58,32 @@ export const sendEmailTemplate = async (to: string, templateId: string, dynamicD
         throw errorResponse;
     }
 };
+
+export const sendVerificationMail = async (to: string) => {
+    //Precisamos gerar o código de 6 dígitos e guardá-lo no banco de dados para posterior validação.
+    const msg = {
+        to,
+        from: env.SENGRID_EMAIL,
+        templateId: env.SENDGRID_VERIFICATION_TEMPLATE_ID,
+        dynamic_template_data: {code: "xxxxxx"},
+    };
+
+    sgMail.setApiKey(env.SENGRID_API_KEY);
+
+    try {
+        await sgMail.send(msg);
+        return {
+            status: 200,
+            message: "Email sent successfully."
+        };
+    } catch (error: unknown) {
+        console.error(error)
+        const errorResponse = {
+            status: 500,
+            message: "An unknown error occurred",
+            code: "UNKNOWN_ERROR"
+        };
+
+        throw errorResponse;
+    }
+};
