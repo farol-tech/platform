@@ -64,10 +64,6 @@ const Register = () => {
 
     const router = useRouter();
     const mutation = api.user.create.useMutation();
-    const mailMutation = api.mail.sendVerificationMail.useMutation();
-
-    //const mailConfirmationText = "Olá, o seu código de verificação é 123456.";
-    //const mailSubject = "Confirmação de cadastro Faroltech";
 
     const validate = () => {
         let flag = true;
@@ -122,12 +118,14 @@ const Register = () => {
         
         try { 
             await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website });
-            router.push('/auth/verifyEmail');
+            //mailMutation.mutateAsync({to:email})
+            let nextPage="/auth/verifyEmail?email=" + encodeURIComponent(email);
+            //console.log(nextPage)
+            router.push(nextPage);
 
         } catch{
-            setSignInError("Error interno. Nos contate para resolvermos.")
+            setSignInError("Error interno. Nos contate para resolvermos.");
         }
-        mailMutation.mutateAsync({to:email})
         setLoadingSubmit(false);
     };
     //Consertar Layout da página

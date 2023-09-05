@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa'
 
-export default function EnterCode({ callback, reset, isLoading }:{callback:CallableFunction,reset:Boolean,isLoading:Boolean}) {
+export default function EnterCode({ callback, reset, isLoading }) {
     const [code, setCode] = useState('');
 
     // Refs to control each digit input element
@@ -26,6 +26,7 @@ export default function EnterCode({ callback, reset, isLoading }:{callback:Calla
     // Call our callback when code = 6 chars
     useEffect(() => {
         if (code.length === 6) {
+            console.log("Callback is being called with code "+code);
             if (typeof callback === 'function') callback(code);
             resetCode();
         }
@@ -99,13 +100,22 @@ export default function EnterCode({ callback, reset, isLoading }:{callback:Calla
     };
 
     // Clear button deletes all inputs and selects the first input for entry
-    
+    const ClearButton = () => {
+        return (
+            <button
+                onClick={resetCode}
+                className="text-2xl absolute right-[-30px] top-3"
+            >
+                <FaTimes />
+            </button>
+        )
+    }
 
     return (
-        <div className="flex relative flex-row items-center mb-4 mt-2 justify-between">
+        <div className="flex relative justify-between py-2">
             {[0, 1, 2, 3, 4, 5].map((index) => (
                 <input
-                    className="text-2xl bg-cinza_claro w-10 flex p-2 text-center border rounded-md"
+                    className="text-2xl bg-gray-800 w-10 flex p-2 text-center border rounded-md"
                     key={index}
                     type="text"
                     maxLength={1}
@@ -118,7 +128,6 @@ export default function EnterCode({ callback, reset, isLoading }:{callback:Calla
                     disabled={isLoading}
                 />
             ))}
-            
         </div>
     );
 }

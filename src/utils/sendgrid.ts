@@ -59,13 +59,13 @@ export const sendEmailTemplate = async (to: string, templateId: string, dynamicD
     }
 };
 
-export const sendVerificationMail = async (to: string) => {
-    //Precisamos gerar o código de 6 dígitos e guardá-lo no banco de dados para posterior validação.
+export const sendVerificationMail = async (to: string, code:string) => {
+    //gerar o código de 6 dígitos e guarda-o no banco de dados para posterior validação.
     const msg = {
         to,
         from: env.SENGRID_EMAIL,
         templateId: env.SENDGRID_VERIFICATION_TEMPLATE_ID,
-        dynamic_template_data: {code: "xxxxxx"},
+        dynamic_template_data: {code: code},
     };
 
     sgMail.setApiKey(env.SENGRID_API_KEY);
