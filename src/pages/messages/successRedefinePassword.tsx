@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from "react";
 import MessagesLayout from '~/layouts/messagesLayout';
 
-const Custom404 = () => {
+const LoginPage = () => {
 
     const router = useRouter();
 
@@ -12,14 +12,10 @@ const Custom404 = () => {
     };
 
     return (
-        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Erro 404 - Página não encontrada'>
+        <MessagesLayout image="/assets/festivities.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='A senha foi redefinida com sucesso'>
             
         </MessagesLayout>
     );
 };
 
-export default Custom404;
-
-// export default function Custom404() {
-//     return <h1>404 - Page Not Founde</h1>
-//   }
+export default LoginPage;
