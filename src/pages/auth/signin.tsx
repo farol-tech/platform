@@ -81,7 +81,7 @@ const LoginPage = () => {
                     type="password"
                     placeholder="Senha"
                     setValue={setPass}
-                    icon={<HiOutlineEye />}
+                    icon={null}
                     error={passError}
                 />
                 <CheckboxComponent
@@ -91,7 +91,7 @@ const LoginPage = () => {
                     setValue={setChecked}
                 />
                 <ButtonComponent text="Login" loading={loadingSubmit} clickFunction={onSubmit} error={signInError}/>
-                <p className='text-medium'> <Link href={"/auth/redefine/send"}>Esqueci minha senha </Link>| <Link href={"/auth/register"}>Cadastre-se</Link></p>
+                <p className='text-medium'> <Link href={"/auth/redefine/send"} className='hover:underline'>Esqueci minha senha </Link>| <Link href={"/auth/register"} className='hover:underline'>Cadastre-se</Link></p>
             </div>
         </NotAuthenticatedLayout>
     );

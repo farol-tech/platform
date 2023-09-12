@@ -12,7 +12,7 @@ const LoginPage = () => {
     };
 
     return (
-        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Esse email já está cadastrado'>
+        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Ocorreu um erro: Email ou CNPJ já cadastrados'>
             
         </MessagesLayout>
     );

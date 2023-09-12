@@ -118,12 +118,15 @@ const Register = () => {
         
         try { 
             const response = await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website });
-            //mailMutation.mutateAsync({to:email})
+            
             if (response == 200){
                 let nextPage="/auth/verifyEmail?email=" + encodeURIComponent(email);
                 router.push(nextPage);
+            } else if (response == 1005){
+                //means unique constraint violation. Could be CNPJ or email.
+                let nextPage="/messages/emailExists";
+                router.push(nextPage);
             }
-
         } catch{
             setSignInError("Error interno. Nos contate para resolvermos.");
         }

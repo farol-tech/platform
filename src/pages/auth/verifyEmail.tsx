@@ -27,16 +27,16 @@ const confirmEmail = () => {
         try {
             const response = await verifyQuery.mutateAsync({email:placeholderMail, inputCode:Number(code)});
             if (response == 200){
-                //redirect to successful login
-
+                // redirect to successRegister page
+                router.push("/messages/successRegister");
             } else if (response == 1000){
                 // means wrong passcode
                 setEmailCodeError("Código errado, tente novamente.");
             } else if (response == 1001){
-                //means too many failures
+                // means too many failures
                 setEmailCodeError("Você falhou muitas vezes. Faça o cadastro novamente.");
             } else if (response == 1002){
-                //means account not yet registered
+                // means account not yet registered
                 setEmailCodeError("Este email ainda não foi registrado. Dirija-se à página de cadastro");
             }
 
