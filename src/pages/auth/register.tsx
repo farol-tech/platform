@@ -117,11 +117,12 @@ const Register = () => {
         setLoadingSubmit(true);
         
         try { 
-            await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website });
+            const response = await mutation.mutateAsync({ email: email, senha: pass, nome_fantasia: nome, cnpj:cnpj, estado:estado, endereco:endereco, website:website });
             //mailMutation.mutateAsync({to:email})
-            let nextPage="/auth/verifyEmail?email=" + encodeURIComponent(email);
-            //console.log(nextPage)
-            router.push(nextPage);
+            if (response == 200){
+                let nextPage="/auth/verifyEmail?email=" + encodeURIComponent(email);
+                router.push(nextPage);
+            }
 
         } catch{
             setSignInError("Error interno. Nos contate para resolvermos.");

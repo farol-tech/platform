@@ -54,7 +54,6 @@ const LoginPage = () => {
             })
 
             setLoadingSubmit(false);
-
             if (result!.ok) {
                 router.push("/dashboard/overview")
             } else {

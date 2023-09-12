@@ -29,7 +29,7 @@ export const userRouter = createTRPCRouter({
               website: input.website,
             },
           });
-         
+        
         const code =  Math.floor(Math.random() * (999999 - 100000 + 1) + 100000);        
         //Create a record in the ValidationStatus table
         await ctx.prisma.validationStatus.create({
@@ -44,7 +44,7 @@ export const userRouter = createTRPCRouter({
         })
         //if steps above are successful, send the email
         const response = sendVerificationMail(newUser.email,code.toString());
-        return newUser;
+        return 200;
           
     }),
 

@@ -5,6 +5,13 @@ import {
   protectedProcedure,
 } from "~/server/api/trpc";
 
+//  ERROR CODES USED FOR THIS RPC (USE IT IN THE FRONTEND)
+/*
+     200: SUCCESS
+    1000: WRONG PASSCODE, TRY AGAIN
+    1001: TOO MANY FAILURES, REGISTER AGAIN
+    1002: ACCOUNT NOT REGISTERED YET
+*/ 
 export const userVerificationRouter = createTRPCRouter({
 
     verifyCode: publicProcedure
@@ -17,7 +24,7 @@ export const userVerificationRouter = createTRPCRouter({
                 },
             });
             
-            if (!entry) return;
+            if (!entry) return 1002;
             const realCode = entry.code;
             const passed = (realCode == input.inputCode) ? true : false;
             
@@ -36,8 +43,9 @@ export const userVerificationRouter = createTRPCRouter({
                         where: {email:input.email},
                     })
                     //TODO: BLACKLIST THE EMAIL FOR SOME TIME, SO THEY CANNOT JUST TRY AGAIN RIGHT AFTER
-                    return;
+                    return 1001;
                 }
+                return 1000;
             }
             else {
                 //congratulations, set the emailVerificado field to true and delete the validationStatus record.
