@@ -11,9 +11,10 @@ type Props = {
     buttonOnClickFunc: () => void;
     buttonText: string;
     message: string;
+    isLoading: boolean;
 };
 
-const messagesLayout: React.FC<Props> = ({ children, image, width, height, buttonOnClickFunc, buttonText, message}) => {
+const messagesLayout: React.FC<Props> = ({ children, image, width, height, buttonOnClickFunc, buttonText, message, isLoading}) => {
 
     return (
         <div className='flex flex-col w-screen h-screen bg-center justify-center items-center'>
@@ -24,7 +25,7 @@ const messagesLayout: React.FC<Props> = ({ children, image, width, height, butto
                 <p>{message}</p>
             </div>
             <div className="py-4 flex flex-col gap-2 w-1/3 justify-center items-center">
-                <ButtonComponent text={buttonText} clickFunction={buttonOnClickFunc}/>
+                <ButtonComponent text={buttonText} clickFunction={buttonOnClickFunc} loading={isLoading}/>
             </div>
         </div>
     );
