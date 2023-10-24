@@ -8,7 +8,7 @@ export default {
       'branco': '#F9F9F9',
       'branquissimo': '#FFFFFF',
       'preto': '#151515',
-      'cinza_medio': '#151515',
+      'cinza_medio': '#767D86',
       'cinza_claro': '#F4EEEE',
       'cinza_roxo': '#EBEDF3',
       'roxo_claro': '#DBDFEA',
