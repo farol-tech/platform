@@ -7,7 +7,7 @@ export type StatusItemProps = {
 
 const StatusItem: React.FC<StatusItemProps> = ({ text, log_date }) => {
     return (
-        <div className="bg-branco flex flex-1 flex-col items-start justify-center gap-2 self-stretch rounded-2xl p-6 md:p-5">
+        <div className="bg-branquissimo flex flex-1 flex-col items-start justify-center gap-2 self-stretch rounded-2xl p-6 md:p-5">
             <div className="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17" fill="none">
                     <path
