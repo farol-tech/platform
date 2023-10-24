@@ -19,15 +19,14 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: DefaultSession["user"] & {
       id: string;
-      // ...other properties
-      // role: UserRole;
+      nome_fantasia: string;
     };
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    id: string;
+    nome_fantasia: string;
+  }
 }
 
 /**
@@ -40,6 +39,7 @@ export const authOptions: NextAuthOptions = {
     jwt({token, user}){
       if(user){
         token.user_id = user.id;
+        token.name = user.nome_fantasia;
       }
 
       return token;
