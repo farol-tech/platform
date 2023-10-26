@@ -22,7 +22,7 @@ const DashboardLayout: React.FC<Props> = ({ children }) => {
     return (
         <div className='flex flex-row w-full h-screen py-8 bg-branco'>
             <NavbarComponent name={session?.user.name || "Loading"}/>
-            <div className='h-full w-5/6 bg-center fle flex-col justify-start items-start flex-grow overflow-hidden gap-[30px] px-[25px]'>
+            <div className='h-full w-5/6 bg-center fle flex-col justify-start items-start flex-grow overflow-auto gap-[30px] px-[25px]'>
                 {children}
             </div>
         </div>

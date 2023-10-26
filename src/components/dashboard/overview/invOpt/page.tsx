@@ -6,9 +6,6 @@ const InvOpt = () => {
 
   return (
     <div className="flex flex-col justify-start items-start self-stretch flex-grow relative overflow-hidden gap-5 p-2.5">
-      <p className="flex-grow-0 flex-shrink-0 text-2xl font-medium text-center text-[#151515]">
-        Otimização de Inventário
-      </p>
       <div className="flex flex-col justify-start items-start self-stretch flex-grow relative overflow-hidden gap-5 p-5 rounded-[20px] bg-[#ebedf3]">
         <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-5">
           <p className="flex-grow w-[418.82px] text-base text-left text-[#151515]">
