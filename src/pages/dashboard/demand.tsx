@@ -5,6 +5,7 @@ import Demand from "~/components/dashboard/overview/demand/page";
 import Status from "~/components/dashboard/demand/status/page";
 import { StatusReportProps } from "~/components/common/StatusReport";
 import { StatusItemProps } from "~/components/common/StatusItem";
+import DashboardComponent, { FilterOptionsProps } from "~/components/dashboard/invOpt/dashboardComponent/page";
 
 const DemandPage: React.FC = ({}) => {
     const items: StatusItemProps[] = [
@@ -23,14 +24,25 @@ const DemandPage: React.FC = ({}) => {
         percentage: 40,
     };
 
+    const options: FilterOptionsProps = {
+        products: ["arroz", "feijao", "pipoca"],
+        families: ["spirandelli", "yoshiro", "merklein"],
+        stores: ["mariazzinha", "deodato eletronicos"],
+    };
+
     return (
         <DashboardLayout>
-            <div className="flex items-center gap-10 self-stretch">
-                <Status items={items} report={report} />
-                <Progress />
-            </div>
-            <div className="flex w-full flex-row items-start justify-start gap-2.5 bg-branco">
-                <Demand />
+            <div className="flex h-full flex-col gap-y-5">
+                <div className="flex w-full flex-row justify-start gap-10">
+                    <div className="flex w-1/2">
+                        <p className="text-center text-2xl font-medium text-[#151515]">Insights Automatizados</p>
+                    </div>
+                    <Status items={items} report={report} />
+                    <Progress />
+                </div>
+                <DashboardComponent title="Previsão de Demanda" options={options}>
+                    <Demand />
+                </DashboardComponent>
             </div>
         </DashboardLayout>
     );
