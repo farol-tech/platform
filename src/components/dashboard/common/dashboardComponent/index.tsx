@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import DashInput from "~/components/dashboard/invOpt/dashInput/page";
+import DashInput from "~/components/dashboard/common/dashInput";
 import { useState } from "react";
 
 export type FilterOptionsProps = {

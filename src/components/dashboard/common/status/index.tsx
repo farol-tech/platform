@@ -1,6 +1,6 @@
 import React from "react";
-import StatusItem, { StatusItemProps } from "~/components/common/StatusItem";
-import StatusReport, { StatusReportProps } from "~/components/common/StatusReport";
+import StatusItem, { StatusItemProps } from "../StatusItem";
+import StatusReport, { StatusReportProps } from "../StatusReport";
 
 type StatusProps = {
     items: StatusItemProps[];

@@ -1,11 +1,11 @@
 import React from "react";
 import DashboardLayout from "~/layouts/dashboard/dashboardLayout";
-import Progress from "~/components/dashboard/demand/progress/page";
-import Demand from "~/components/dashboard/overview/demand/page";
-import Status from "~/components/dashboard/demand/status/page";
+import Progress from "~/components/dashboard/demand/progress";
+import Demand from "~/components/dashboard/overview/demand";
+import Status from "~/components/dashboard/common/status";
 import { StatusItemProps } from "~/components/dashboard/common/StatusItem";
 import { StatusReportProps } from "~/components/dashboard/common/StatusReport";
-import DashboardComponent, { FilterOptionsProps } from "~/components/dashboard/common/dashboardComponent/page";
+import DashboardComponent, { FilterOptionsProps } from "~/components/dashboard/common/dashboardComponent";
 
 const DemandPage: React.FC = ({}) => {
     const items: StatusItemProps[] = [

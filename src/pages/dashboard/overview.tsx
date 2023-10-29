@@ -1,8 +1,8 @@
 import React from 'react';
 import DashboardLayout from '~/layouts/dashboard/dashboardLayout';
-import Demand from '~/components/dashboard/overview/demand/page';
-import InvOpt from '~/components/dashboard/overview/invOpt/page';
-import Progress from '~/components/dashboard/overview/progress/page';
+import Demand from '~/components/dashboard/overview/demand';
+import InvOpt from '~/components/dashboard/overview/invOpt';
+import Progress from '~/components/dashboard/overview/progress';
 
 
 const Overview: React.FC = ({ }) => {

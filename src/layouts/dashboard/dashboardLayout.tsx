@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarComponent from '~/components/dashboard/navbar/navbar';
+import NavbarComponent from '~/components/dashboard/navbar';
 import { useSession } from "next-auth/react"
 import { useRouter } from 'next/router';
 
