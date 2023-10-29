@@ -16,7 +16,7 @@ const NavbarComponent: React.FC<Props> = ({ name }) => {
     const links = [
         { "name": "Dashboard", "icon": <BiGridAlt className='text-cinza_medio' size={24} />, "url": "/dashboard/overview" },
         { "name": "Previsão de Demanda", "icon": <BiBarChartAlt2 className='text-cinza_medio' size={24} />, "url": "/dashboard/demand"},
-        { "name": "Otimização de Inventário", "icon": <BiCube className='text-cinza_medio' size={24} />, "url": "/dashboard/invopt"},
+        { "name": "Otimização de Inventário", "icon": <BiCube className='text-cinza_medio' size={24} />, "url": "/dashboard/invOpt"},
         { "name": "Configurações", "icon": <BiCog className='text-cinza_medio' size={24} />, "url": "/dashboard/settings"},
         { "name": "Notificações", "icon": <BiBell className='text-cinza_medio' size={24} />, "url": "/dashboard/notifications"},
     ]
