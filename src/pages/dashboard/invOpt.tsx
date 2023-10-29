@@ -2,10 +2,10 @@ import React from "react";
 import DashboardLayout from "~/layouts/dashboard/dashboardLayout";
 import InvOpt from "~/components/dashboard/overview/invOpt/page";
 import Status from "~/components/dashboard/demand/status/page";
-import { StatusReportProps } from "~/components/common/StatusReport";
-import { StatusItemProps } from "~/components/common/StatusItem";
 import Progress from "~/components/dashboard/invOpt/progress/page";
-import DashboardComponent, { FilterOptionsProps } from "~/components/dashboard/invOpt/dashboardComponent/page";
+import { StatusItemProps } from "~/components/dashboard/common/StatusItem";
+import { StatusReportProps } from "~/components/dashboard/common/StatusReport";
+import DashboardComponent, { FilterOptionsProps } from "~/components/dashboard/common/dashboardComponent/page";
 
 const invOpt = () => {
     const items: StatusItemProps[] = [
