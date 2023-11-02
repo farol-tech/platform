@@ -12,7 +12,7 @@ const Custom404 = () => {
     };
 
     return (
-        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Erro 404 - Página não encontrada'>
+        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Erro 404 - Página não encontrada Yoki'>
             
         </MessagesLayout>
     );
