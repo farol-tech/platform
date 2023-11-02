@@ -20,7 +20,7 @@ const Overview: React.FC = ({}) => {
             <Progress />
             <div className="flex w-full flex-row items-start justify-start gap-2.5 bg-branco">
                 <Demand data={data} />
-                <InvOpt />
+                <InvOpt data={data} />
             </div>
         </DashboardLayout>
     );

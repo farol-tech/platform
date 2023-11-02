@@ -30,6 +30,16 @@ const DemandPage: React.FC = ({}) => {
         stores: ["mariazzinha", "deodato eletronicos"],
     };
 
+    const data = [
+        { x: 1, y: 400 },
+        { x: 2, y: 378 },
+        { x: 3, y: 399 },
+        { x: 4, y: 398 },
+        { x: 5, y: 356 },
+        { x: 6, y: 402 },
+        { x: 6, y: 366 },
+    ];
+
     return (
         <DashboardLayout>
             <div className="flex h-full flex-col gap-y-5">
@@ -41,7 +51,7 @@ const DemandPage: React.FC = ({}) => {
                     <Progress />
                 </div>
                 <DashboardComponent title="Previsão de Demanda" options={options}>
-                    <Demand />
+                    <Demand data={data} hasButton={false} />
                 </DashboardComponent>
             </div>
         </DashboardLayout>
