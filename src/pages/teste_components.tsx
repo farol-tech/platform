@@ -6,6 +6,7 @@ import CheckboxComponent from "~/components/common/checkbox/checkbox";
 import { HiOutlineEye } from "react-icons/hi";
 import ButtonComponent from '~/components/common/button/buttton';
 import MultipleChoiceComponent from '~/components/common/multiple_choice/multiple_choice';
+import GraphComponent from '~/components/common/graph/graph';
 
 
 const LoginPage = () => {
@@ -20,6 +21,8 @@ const LoginPage = () => {
     const [checkeds, setCheckeds] = useState([false, false, false]);
 
     const [checkeds2, setCheckeds2] = useState([false, false, false]);
+
+    const [graph, setGraph] = useState(`digraph { }`);
 
     const validate = () => {
         let flag = true;
@@ -52,54 +55,66 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="py-4 flex flex-col gap-2 w-full h-screen items-center align-middle">
-            <h2 className="text-2xl font-bold">Teste de Diferentes Componentes</h2>
-            <InputComponent
-                title="Texto"
-                type="email"
-                placeholder="nome@email.com"
-                setValue={setEmail}
-                error={emailError}
-            />
-            <InputComponent
-                title="Senha"
-                type="password"
-                placeholder="Senha"
-                setValue={setPass}
-                icon={<HiOutlineEye />}
-                error={passError}
-            />
-            <InputComponent
-                title="Numeros"
-                type="number"
-                placeholder=""
-                setValue={setNum}
-                error={numError}
-            />
-            <CheckboxComponent
-                id="conectado"
-                label="CheckboxSimples"
-                checked={checked}
-                setValue={setChecked}
-            />
+        <div className="flex flex-col w-full h-screen items-center align-middle">
+            <div className='py-4 flex flex-col gap-2 max-w-2xl min-w-max h-screen items-start align-middle'>
+                <h2 className="text-2xl font-bold">Teste de Diferentes Componentes</h2>
+                <InputComponent
+                    title="Texto"
+                    type="email"
+                    placeholder="nome@email.com"
+                    setValue={setEmail}
+                    error={emailError}
+                />
+                <InputComponent
+                    title="Senha"
+                    type="password"
+                    placeholder="Senha"
+                    setValue={setPass}
+                    icon={<HiOutlineEye />}
+                    error={passError}
+                />
+                <InputComponent
+                    title="Numeros"
+                    type="number"
+                    placeholder=""
+                    setValue={setNum}
+                    error={numError}
+                />
+                <CheckboxComponent
+                    id="conectado"
+                    label="CheckboxSimples"
+                    checked={checked}
+                    setValue={setChecked}
+                />
 
-            <MultipleChoiceComponent
-                title="Só pode escolher 1 opção"
-                single={true}
-                choices={["Opção 1", "Opção 2", "Opção 3"]}
-                checked={checkeds}
-                setCheckeds={setCheckeds}
-            />
+                <div className="w-1/4">
+                    <ButtonComponent text="Butão" clickFunction={onSubmit}/>
+                </div>
 
-            <MultipleChoiceComponent
-                title="Pode escolher várias opções"
-                single={false}
-                choices={["MOpção 1", "MOpção 2", "MOpção 3"]}
-                checked={checkeds2}
-                setCheckeds={setCheckeds2}
-            />
+                <MultipleChoiceComponent
+                    title="Só pode escolher 1 opção"
+                    single={true}
+                    choices={["Opção 1", "Opção 2", "Opção 3"]}
+                    checked={checkeds}
+                    setCheckeds={setCheckeds}
+                />
 
-            <ButtonComponent text="Butão" clickFunction={onSubmit}/>
+                <MultipleChoiceComponent
+                    title="Pode escolher várias opções"
+                    single={false}
+                    choices={["MOpção 1", "MOpção 2", "MOpção 3"]}
+                    checked={checkeds2}
+                    setCheckeds={setCheckeds2}
+                />
+
+                <GraphComponent
+                    title="Grafo"
+                    w={600}
+                    h={300}
+                    graph= {graph}
+                    setGraph={setGraph}
+                />
+            </div>
         </div>
     );
 };

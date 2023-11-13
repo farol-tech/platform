@@ -1,6 +1,6 @@
 import { Single_Day } from 'next/font/google';
 import React from 'react';
-import CheckboxComponent from "~/components/common/checkbox/checkbox";
+import CheckboxBigComponent from "~/components/common/checkbox/checkboxBig";
 
 type InputProps = {
   title: string;
@@ -21,7 +21,7 @@ const MultipleChoiceComponent: React.FC<InputProps> = ({ title, single, error, i
       <div className="relative">
         {choices.map((choice, index) => {
           return (
-            <CheckboxComponent
+            <CheckboxBigComponent
               key={index}
               id={choice}
               label={choice}
