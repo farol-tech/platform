@@ -4,15 +4,17 @@ import React, { useState } from "react";
 import MessagesLayout from '~/layouts/messagesLayout';
 
 const LoginPage = () => {
-
+    const [loading, setLoadingSubmit] = useState(false);
     const router = useRouter();
 
     const onSubmit = async () => {
-        router.push("/auth/signin")
+        setLoadingSubmit(true);
+        router.push("/auth/signin");
+        setLoadingSubmit(false);
     };
 
     return (
-        <MessagesLayout image="/assets/festivities.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='A senha foi redefinida com sucesso'>
+        <MessagesLayout isLoading={loading} image="/assets/festivities.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='A senha foi redefinida com sucesso'>
             
         </MessagesLayout>
     );

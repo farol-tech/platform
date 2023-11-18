@@ -22,6 +22,7 @@ export const env = createEnv({
     ),
     SENGRID_API_KEY: z.string().min(1),
     SENGRID_EMAIL: z.string().min(1),
+    SENDGRID_VERIFICATION_TEMPLATE_ID: z.string().min(1),
   },
 
   /**
@@ -43,7 +44,8 @@ export const env = createEnv({
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     SENGRID_API_KEY: process.env.SENDGRID_API_KEY,
-    SENGRID_EMAIL: process.env.SENDGRID_EMAIL
+    SENGRID_EMAIL: process.env.SENDGRID_EMAIL,
+    SENDGRID_VERIFICATION_TEMPLATE_ID:process.env.SENDGRID_VERIFICATION_TEMPLATE_ID
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

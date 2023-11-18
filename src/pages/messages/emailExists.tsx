@@ -4,15 +4,18 @@ import React, { useState } from "react";
 import MessagesLayout from '~/layouts/messagesLayout';
 
 const LoginPage = () => {
+    const [loading, setLoadingSubmit] = useState(false);
 
     const router = useRouter();
 
     const onSubmit = async () => {
-        router.push("/auth/signin")
+        setLoadingSubmit(true);
+        router.push("/auth/signin");
+        setLoadingSubmit(false);
     };
 
     return (
-        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Esse email já está cadastrado'>
+        <MessagesLayout image="/assets/unexpected.svg" width={500} height={292} buttonOnClickFunc={onSubmit} buttonText='Fazer Login' message='Ocorreu um erro: Email ou CNPJ já cadastrados' isLoading={loading}>
             
         </MessagesLayout>
     );

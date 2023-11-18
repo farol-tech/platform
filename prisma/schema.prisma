@@ -50,10 +50,24 @@ model User {
     nome_fantasia   String
     email           String    @unique
     senha           String
-    emailVerificado DateTime?
+    cnpj            String    @unique
+    estado          String
+    endereco        String
+    website         String?
+    emailVerificado Boolean   @default(false)
     image           String?
     accounts        Account[]
     sessions        Session[]
+}
+
+model ValidationStatus {
+    id              String    @id @default(cuid())
+    email           String    @unique
+    userID          String    @unique
+    code            Int
+    tries           Int       
+    timeoutCounter  Int
+
 }
 
 model VerificationToken {

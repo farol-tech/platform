@@ -79,8 +79,8 @@ export const authOptions: NextAuthOptions = {
           where: { email: credentials?.email },
         })
 
-        // Check user found and password
-        if (user && await bcrypt.compare(credentials!.password, user.senha)) {
+        // Check user found and password, and check if the account is verified
+        if (user && await bcrypt.compare(credentials!.password, user.senha) && user.emailVerificado) {
           return user;
         }
 

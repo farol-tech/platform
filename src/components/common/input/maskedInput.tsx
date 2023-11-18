@@ -1,4 +1,5 @@
 import React from 'react';
+import InputMask from 'react-input-mask';
 
 type InputProps = {
   title: string;
@@ -7,16 +8,20 @@ type InputProps = {
   error?: string;
   setValue: CallableFunction;
   icon?: React.ReactNode;
+  mask: string;
 };
 
-const InputComponent: React.FC<InputProps> = ({ title, type, placeholder, error, icon, setValue}) => {
+const MaskedInputComponent: React.FC<InputProps> = ({ title, type, placeholder, error, icon, setValue, mask}) => {
   return (
     <div className="flex flex-col space-y-2 text-preto">
       <label className="text-lg font-medium">{title}</label>
       <div className="relative">
-        <input
-          type={type}
-          placeholder={placeholder}
+        <InputMask 
+          maskChar={" "}
+          mask={mask}
+          maskPlaceholder={""}
+          type={type} 
+          placeholder={placeholder} 
           className="pr-5 pl-3 py-2 border w-full focus:outline-none border-cinza_medio"
           onChange={(e) => {setValue(e.target.value)}}
         />
@@ -31,5 +36,5 @@ const InputComponent: React.FC<InputProps> = ({ title, type, placeholder, error,
   );
 };
 
-export default InputComponent;
+export default MaskedInputComponent;
 

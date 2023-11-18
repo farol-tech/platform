@@ -3,7 +3,7 @@ import {
     createTRPCRouter,
     publicProcedure,
 } from "~/server/api/trpc";
-import { sendEmail, sendEmailTemplate } from "~/utils/sendgrid";
+import { sendEmail, sendEmailTemplate} from "~/utils/sendgrid";
 
 
 export const mailRouter = createTRPCRouter({
