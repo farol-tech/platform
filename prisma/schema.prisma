@@ -57,7 +57,11 @@ model User {
     emailVerificado Boolean   @default(false)
     image           String?
     accounts        Account[]
+    models          Modelo[]
     sessions        Session[]
+    previsoes       Previsao[]
+    produtos        Produto[]
+    respostas       Resposta[]
 }
 
 model ValidationStatus {
@@ -76,4 +80,96 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Modelo {
+    id              String    @id @default(cuid())
+    nome_modelo     String
+    id_produto      String
+    UserId          String
+    user            User    @relation(fields: [UserId], references: [id], onDelete: Cascade)
+    produto         Produto    @relation(fields: [id_produto], references: [id], onDelete: Cascade)
+    previsoes       Previsao[]
+    inventarios     Inventario[]
+}
+
+model Previsao {
+    id              String    @id @default(cuid())
+    nome_modelo     String
+    id_modelo       String
+    modelo          Modelo @relation(fields: [id_modelo], references: [id], onDelete: Cascade)
+    id_produto      String
+    UserId          String
+    data_previsao   DateTime
+    data_feito      DateTime
+    valor           Float
+    produto         Produto    @relation(fields: [id_produto], references: [id], onDelete: Cascade)
+    user            User    @relation(fields: [UserId], references: [id], onDelete: Cascade)
+}
+
+model Produto {
+    id              String    @id @default(cuid())
+    UserId          String
+    nome_produto    String
+    id_unidade      String
+    user            User    @relation(fields: [UserId], references: [id], onDelete: Cascade)
+    unidade         Unidade @relation(fields: [id_unidade], references: [id], onDelete: Cascade)
+    previsoes       Previsao[]
+    modelos         Modelo[]
+    inventarios     Inventario[]
+}
+
+model Inventario {
+    id              String    @id @default(cuid())
+    id_modelo       String
+    id_produto      String
+    data_previsao   DateTime
+    data_feito      DateTime
+    valor           Float
+    produto         Produto    @relation(fields: [id_produto], references: [id], onDelete: Cascade)
+    modelo          Modelo @relation(fields: [id_modelo], references: [id], onDelete: Cascade)
+
+}
+
+model Unidade{
+    id String   @id @default(cuid())
+    nome_unidade String
+    produtos Produto[]
+}
+
+model Resposta{
+    id String   @id @default(cuid())
+    id_pergunta_questionario String 
+    pergunta Pergunta_Questionario @relation(fields: [id_pergunta_questionario], references: [id], onDelete: Cascade)
+    id_usuario String
+    usuario User @relation(fields: [id_usuario], references: [id], onDelete: Cascade)
+    data DateTime
+}
+
+model Pergunta_Questionario{
+    id String   @id @default(cuid())
+    nome String 
+    enunciado String 
+    tipo_pergunta String 
+    questionario Questionario @relation(fields: [id_questionario], references: [id], onDelete: Cascade)
+    pagina Int
+    id_questionario String
+    respostas Resposta[]
+    opcoes Opcoes_Pergunta[]
+}
+
+model Questionario{
+    id String   @id @default(cuid())
+    nome String 
+    quantidade_perguntas Int
+    id_questionario String
+    perguntas Pergunta_Questionario[]
+}
+
+model Opcoes_Pergunta{
+    id String   @id @default(cuid())
+    posicao Int
+    enunciado String
+    id_pergunta_questionario String
+    pergunta Pergunta_Questionario @relation(fields: [id_pergunta_questionario], references: [id], onDelete: Cascade)
 }
