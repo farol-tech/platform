@@ -48,22 +48,22 @@ const GraphComponent: React.FC<InputProps> = ({ title, w, h, graph, setGraph, er
         )}
       </div>
 
-      <label className="text-lg font-medium">Insira uma Transição</label>
+      <label className="text-lg font-medium">Insira uma relação entre duas filiais</label>
       
       <div className="flex flex-row items-center space-x-2">
         <div className="grow">
           <InputComponent
-            title="Nó A"
+            title="Filial A"
             type="text"
-            placeholder="Nó A"
+            placeholder="Filial"
             setValue={setNoA}
           />
         </div>
         <div className="grow">
           <InputComponent
-            title="Nó B"
+            title="Filial B"
             type="text"
-            placeholder="Nó B"
+            placeholder="Filial"
             setValue={setNoB}
           />
         </div>
