@@ -1,6 +1,50 @@
 import React from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-
+const data = [
+  {
+    time: 1,
+    uv: 4000,
+    pv: 2000,
+    amt: 2400,
+  },
+  {
+    time: 2,
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    time: 3,
+    uv: 2000,
+    pv: 5800,
+    amt: 2290,
+  },
+  {
+    time: 4,
+    uv: 2780,
+    pv: 1908,
+    amt: 2000,
+  },
+  {
+    time: 5,
+    uv: 1890,
+    pv: 9800,
+    amt: 2181,
+  },
+  {
+    time: 6,
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    time: 7,
+    uv: 3490,
+    pv: 6300,
+    amt: 2100,
+  },
+];
 
 const Demand = () => {
 
@@ -48,299 +92,20 @@ const Demand = () => {
           </svg>
         </div>
         <div className="flex-grow-0 flex-shrink-0 w-[483px] h-[340px] relative overflow-hidden">
-          <svg
-            width={397}
-            height={309}
-            viewBox="0 0 397 309"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-[395.47px] h-[307.36px]"
-            preserveAspectRatio="none"
-          >
-            <path d="M0.657349 308.193H396.129" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M0.657349 231.353H396.129" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M0.657349 154.513H396.129" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M0.657349 77.6733H396.129" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M0.657349 0.833252H396.129" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M0.657349 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M66.5692 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M132.481 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M198.393 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M264.305 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M330.217 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-            <path d="M396.128 0.833252V308.193" stroke="#767D86" strokeDasharray="3 3" />
-          </svg>
-          <div className="w-[428.1px] h-[11.06px]">
-            <svg
-              width={397}
-              height={2}
-              viewBox="0 0 397 2"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute left-[63.16px] top-[309.69px]"
-              preserveAspectRatio="none"
-            >
-              <path d="M0.657227 1.19336H396.128" stroke="#767D86" />
-            </svg>
-            <div className="w-[428.1px] h-[11.06px]">
-              <div className="w-[32.62px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[63.16px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.657227 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[32.62px] h-[8.5px] absolute left-[47.35px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page A
-                </p>
-              </div>
-              <div className="w-[31.83px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[129.07px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.569092 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[31.83px] h-[8.5px] absolute left-[113.65px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page B
-                </p>
-              </div>
-              <div className="w-[32.62px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[194.98px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M1.48096 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[32.62px] h-[8.5px] absolute left-[179.17px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page C
-                </p>
-              </div>
-              <div className="w-[32.62px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[260.89px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M1.39282 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[32.62px] h-[8.5px] absolute left-[245.08px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page D
-                </p>
-              </div>
-              <div className="w-[31.83px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[326.8px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M1.30469 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[31.83px] h-[8.5px] absolute left-[311.39px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page E
-                </p>
-              </div>
-              <div className="w-[31.83px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[392.72px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M1.21655 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[31.83px] h-[8.5px] absolute left-[377.3px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page F
-                </p>
-              </div>
-              <div className="w-[32.62px] h-[11.06px]">
-                <svg
-                  width={2}
-                  height={4}
-                  viewBox="0 0 2 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[458.63px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M1.12842 3.59336V0.193359" stroke="#767D86" />
-                </svg>
-                <p className="w-[32.62px] h-[8.5px] absolute left-[442.82px] top-[312.75px] text-xs text-center text-[#767d86]">
-                  Page G
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="w-[35.01px] h-[313.71px]">
-            <svg
-              width={2}
-              height={309}
-              viewBox="0 0 2 309"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="absolute left-[63.16px] top-[2.33px]"
-              preserveAspectRatio="none"
-            >
-              <path d="M0.657227 0.833252V308.193" stroke="#767D86" />
-            </svg>
-            <div className="w-[35.01px] h-[313.71px]">
-              <div className="w-[12.73px] h-[8.5px]">
-                <svg
-                  width={6}
-                  height={2}
-                  viewBox="0 0 6 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[58.38px] top-[309.69px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.882935 1.19312H5.65723" stroke="#767D86" />
-                </svg>
-                <p className="w-[6.37px] h-[8.5px] absolute left-[50.93px] top-[305.81px] text-xs text-right text-[#767d86]">
-                  0
-                </p>
-              </div>
-              <div className="w-[30.24px] h-[8.5px]">
-                <svg
-                  width={6}
-                  height={2}
-                  viewBox="0 0 6 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[58.38px] top-[232.85px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.882935 1.35327H5.65723" stroke="#767D86" />
-                </svg>
-                <p className="w-[23.87px] h-[8.5px] absolute left-[33.42px] top-[228.97px] text-xs text-right text-[#767d86]">
-                  2500
-                </p>
-              </div>
-              <div className="w-[30.24px] h-[8.5px]">
-                <svg
-                  width={6}
-                  height={2}
-                  viewBox="0 0 6 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[58.38px] top-[156.01px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.882935 0.513184H5.65723" stroke="#767D86" />
-                </svg>
-                <p className="w-[23.87px] h-[8.5px] absolute left-[33.42px] top-[152.13px] text-xs text-right text-[#767d86]">
-                  5000
-                </p>
-              </div>
-              <div className="w-[30.24px] h-[8.5px]">
-                <svg
-                  width={6}
-                  height={2}
-                  viewBox="0 0 6 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[58.38px] top-[79.17px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.882935 0.67334H5.65723" stroke="#767D86" />
-                </svg>
-                <p className="w-[23.87px] h-[8.5px] absolute left-[33.42px] top-[75.29px] text-xs text-right text-[#767d86]">
-                  7500
-                </p>
-              </div>
-              <div className="w-[35.01px] h-[8.5px]">
-                <svg
-                  width={6}
-                  height={2}
-                  viewBox="0 0 6 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute left-[58.38px] top-[2.33px]"
-                  preserveAspectRatio="none"
-                >
-                  <path d="M0.882935 0.833252H5.65723" stroke="#767D86" />
-                </svg>
-                <p className="w-[28.65px] h-[8.5px] absolute left-[28.65px] top-[0.6px] text-xs text-right text-[#767d86]">
-                  10000
-                </p>
-              </div>
-            </div>
-          </div>
-          <svg
-            width={403}
-            height={264}
-            viewBox="0 0 403 264"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-[400.25px] h-[261.64px]"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M3.65735 230.427C25.6279 245.825 47.5984 261.224 69.5689 261.224C91.5395 261.224 113.511 2.98047 135.481 2.98047C157.452 2.98047 179.422 184.077 201.393 184.077C223.363 184.077 245.334 156.66 267.305 156.66C289.275 156.66 311.246 187.396 333.217 187.396C355.187 187.396 377.158 179.712 399.129 172.028"
-              stroke="#116A7B"
-            />
-            <path
-              d="M3.65729 232.127C4.97568 232.127 6.04444 231.366 6.04444 230.427C6.04444 229.488 4.97568 228.727 3.65729 228.727C2.33891 228.727 1.27014 229.488 1.27014 230.427C1.27014 231.366 2.33891 232.127 3.65729 232.127Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-            <path
-              d="M69.5692 262.924C70.8875 262.924 71.9563 262.163 71.9563 261.224C71.9563 260.286 70.8875 259.524 69.5692 259.524C68.2508 259.524 67.182 260.286 67.182 261.224C67.182 262.163 68.2508 262.924 69.5692 262.924Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-            <path
-              d="M135.481 4.68052C136.799 4.68052 137.868 3.9194 137.868 2.98052C137.868 2.04163 136.799 1.28052 135.481 1.28052C134.163 1.28052 133.094 2.04163 133.094 2.98052C133.094 3.9194 134.163 4.68052 135.481 4.68052Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-            <path
-              d="M201.393 185.777C202.711 185.777 203.78 185.016 203.78 184.077C203.78 183.138 202.711 182.377 201.393 182.377C200.075 182.377 199.006 183.138 199.006 184.077C199.006 185.016 200.075 185.777 201.393 185.777Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-            <path
-              d="M267.305 158.36C268.623 158.36 269.692 157.599 269.692 156.66C269.692 155.722 268.623 154.96 267.305 154.96C265.986 154.96 264.917 155.722 264.917 156.66C264.917 157.599 265.986 158.36 267.305 158.36Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-            <path
-              d="M333.217 189.097C334.535 189.097 335.604 188.335 335.604 187.397C335.604 186.458 334.535 185.697 333.217 185.697C331.898 185.697 330.83 186.458 330.83 187.397C330.83 188.335 331.898 189.097 333.217 189.097Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-            <path
-              d="M399.128 173.729C400.447 173.729 401.516 172.967 401.516 172.029C401.516 171.09 400.447 170.329 399.128 170.329C397.81 170.329 396.741 171.09 396.741 172.029C396.741 172.967 397.81 173.729 399.128 173.729Z"
-              fill="white"
-              stroke="#116A7B"
-            />
-          </svg>
+          <ResponsiveContainer width="100%" height="100%">
+                <LineChart
+                width={397}
+                height={309}
+                data={data}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5, }}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="time" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                    <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                </LineChart>
+          </ResponsiveContainer>
         </div>
         <div className="flex flex-col justify-center items-center self-stretch flex-grow overflow-hidden gap-2.5">
           <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative overflow-hidden gap-2.5 p-[15px] rounded-[30px] bg-[#eee9da]">
