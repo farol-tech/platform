@@ -38,14 +38,8 @@ const GraphComponent: React.FC<InputProps> = ({ title, w, h, graph, setGraph, er
   return (
     <div className="flex flex-col space-y-2 text-preto">
       <label className="text-lg font-medium">{title}</label>
-      <div className="relative">
+      <div className="flex align-middle items-center">
         <Graphviz dot={graph} options={{ width: w, height: h }} />        
-
-        {icon && (
-          <div className="absolute inset-y-0 right-3 flex items-center">
-            {icon}
-          </div>
-        )}
       </div>
 
       <label className="text-lg font-medium">Insira uma relação entre duas filiais</label>

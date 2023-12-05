@@ -4,6 +4,7 @@ import { userRouter } from "./routers/user";
 import { mailRouter } from "./routers/mail";
 import { userVerificationRouter } from "./routers/userVerification";
 import { api } from "~/utils/api";
+import { formsRouter } from "./routers/forms";
 
 /**
  * This is the primary router for your server.
@@ -14,6 +15,7 @@ export const appRouter = createTRPCRouter({
   example: exampleRouter,
   user: userRouter,
   mail: mailRouter,
+  forms: formsRouter,
   userVerification: userVerificationRouter,
 });
 
