@@ -49,14 +49,11 @@ const data = [
 const Demand = () => {
 
   return (
-    <div className="flex flex-col justify-start items-start overflow-hidden gap-5 p-2.5">
-      <p className="flex-grow-0 flex-shrink-0 text-2xl font-medium text-center text-[#151515]">
-        Previsão de Demanda
-      </p>
-      <div className="flex flex-col justify-start items-start self-stretch flex-grow relative overflow-hidden gap-5 p-5 rounded-[20px] bg-[#f7f5eb]">
+    <div className="flex flex-col justify-start items-start self-stretch flex-grow relative overflow-hidden gap-5 p-2.5">
+      <div className="flex flex-col justify-start items-start self-stretch flex-grow relative overflow-hidden gap-5 p-5 rounded-[20px] bg-bege_claro">
         <div className="flex justify-start items-center self-stretch flex-grow-0 flex-shrink-0 relative gap-5">
           <p className="flex-grow w-[418.82px] text-base text-left text-[#151515]">
-            Demanda total (em R$) por unidade de tempo
+            {'Demanda Total (em R$) por unidade de tempo'}
           </p>
           <svg
             width={19}
@@ -91,7 +88,7 @@ const Demand = () => {
             />
           </svg>
         </div>
-        <div className="flex-grow-0 flex-shrink-0 w-[483px] h-[340px] relative overflow-hidden">
+        <div className="flex-grow-0 flex-shrink-0 w-5/6 h-[400px] relative overflow-hidden mt-5 ml-10">
           <ResponsiveContainer width="100%" height="100%">
                 <LineChart
                 width={397}
@@ -103,12 +100,12 @@ const Demand = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                    <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                    <Line type="monotone" dataKey="pv" stroke="#116A7B" activeDot={{ r: 8 }} />
                 </LineChart>
           </ResponsiveContainer>
         </div>
         <div className="flex flex-col justify-center items-center self-stretch flex-grow overflow-hidden gap-2.5">
-          <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative overflow-hidden gap-2.5 p-[15px] rounded-[30px] bg-[#eee9da]">
+          <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative overflow-hidden gap-2.5 pt-[10px] pb-[10px] p-[20px] rounded-[30px] bg-bege">
             <p className="flex-grow-0 flex-shrink-0 text-lg font-medium text-left text-[#151515]">
               Detalhes
             </p>
