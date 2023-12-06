@@ -73,7 +73,7 @@ const customStyles = {
   const SelectInputComponent: React.FC<InputProps> = ({ title, placeholder, error, setValue, options }) => {
     return (
       <div className="flex flex-col space-y-2 text-preto">
-        <label className="text-lg font-medium ml-5">{title}</label>
+        <label className="text-lg font-medium ml-3">{title}</label>
         <div className="relative">
             <Select
                 isMulti
