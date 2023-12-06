@@ -33,10 +33,9 @@ const invOpt = () => {
             <div className='flex flex-row w-full justify-start gap-10'>
                 <div className='flex flex-col gap-10 w-1/2'>
                     <p className='text-2xl font-medium text-[#151515]'>Insights Automatizados</p>
-                    <div className="flex flex-col items-center justify-between">
+                    <div className="flex flex-col items-left text-left text-xg h-full p-1">
                      <InsightTable></InsightTable>
                     </div>
-                   
                 </div>
                 <Status items={items} report={report}></Status>
                 <Progress></Progress>
