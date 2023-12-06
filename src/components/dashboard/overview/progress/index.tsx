@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 
 
 const Progress = () => {
@@ -30,25 +30,27 @@ const Progress = () => {
             </span>
           </p>
           <div className="flex flex-col justify-center items-start self-stretch flex-grow overflow-hidden gap-2.5">
-            <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative overflow-hidden gap-2.5 p-[15px] rounded-[30px] bg-[#f9f9f9]">
-              <p className="flex-grow-0 flex-shrink-0 text-lg font-medium text-left text-[#151515]">
-                Como Melhorar
-              </p>
-              <svg
-                width={14}
-                height={15}
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="flex-grow-0 flex-shrink-0"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M5.293 12.793L6.707 14.207L13.414 7.49997L6.707 0.792969L5.293 2.20697L9.586 6.49997H0V8.49997H9.586L5.293 12.793Z"
-                  fill="#151515"
-                />
-              </svg>
-            </div>
+            <Link href='/formulario/forms'>
+              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative overflow-hidden gap-2.5 p-[15px] rounded-[30px] bg-[#f9f9f9]">
+                <p className="flex-grow-0 flex-shrink-0 text-lg font-medium text-left text-[#151515]">
+                  Como Melhorar
+                </p>
+                <svg
+                  width={14}
+                  height={15}
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="flex-grow-0 flex-shrink-0"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M5.293 12.793L6.707 14.207L13.414 7.49997L6.707 0.792969L5.293 2.20697L9.586 6.49997H0V8.49997H9.586L5.293 12.793Z"
+                    fill="#151515"
+                  />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[200px] relative overflow-hidden gap-2.5 px-5 py-[15px] rounded-[20px] bg-[#f7f5eb]">

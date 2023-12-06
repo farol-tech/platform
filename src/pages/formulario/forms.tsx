@@ -4,6 +4,7 @@ import GraphComponent from '~/components/common/graph/graph';
 import { useSession } from 'next-auth/react';
 import { api } from '~/utils/api';
 import FileInputComponent from '~/components/common/file/file';
+import DashboardLayout from "~/layouts/dashboard/dashboardLayout";
 
 export default function Home() {
     const { data: session } = useSession();
@@ -190,12 +191,14 @@ export default function Home() {
     ]
 
     return (
-        <div className="flex flex-col w-full h-screen items-center align-middle">
-            <h1 className="text-2xl font-bold py-5 my-2">Formulario Farol Tech</h1>
-            <div className='py-4 flex flex-col gap-2 w-1/2 h-screen items-start align-middle'>
-                {fieldGroups[step]}
-                <Navigation/>
+        <DashboardLayout>
+            <div className="flex flex-col w-full h-screen items-center align-middle">
+                <h1 className="text-2xl font-bold py-5 my-2">Formulario Farol Tech</h1>
+                <div className='py-4 flex flex-col gap-2 w-1/2 h-screen items-start align-middle'>
+                    {fieldGroups[step]}
+                    <Navigation/>
+                </div>
             </div>
-        </div>
+        </DashboardLayout>
     )
 }
