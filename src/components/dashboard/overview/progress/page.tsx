@@ -7,9 +7,7 @@ const Progress = () => {
   return (
     <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[ relative overflow-hidden gap-5">
       <p className="flex-grow-0 flex-shrink-0 text-2xl font-medium text-center text-[#151515]">
-        Progresso da {"{"}
-        {"{"}Empresa{"}"}
-        {"}"}
+        Progresso da Farol
       </p>
       <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[287px] overflow-hidden gap-5 p-5 rounded-[20px] bg-[#abb4ce]">
         <div className="flex flex-col justify-start items-start self-stretch flex-grow relative gap-2.5">

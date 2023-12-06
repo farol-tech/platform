@@ -8,13 +8,14 @@ import Progress from '~/components/dashboard/overview/progress/page';
 const Overview: React.FC = ({ }) => {
 
     return (
-        <DashboardLayout>
-            <Progress />
-            <div className='flex flex-row justify-start items-start w-full gap-2.5 bg-branco'>
-                <Demand />
-                <InvOpt />
-            </div>
-        </DashboardLayout>
+            <DashboardLayout>
+                <Progress/>
+                <div className='flex flex-row justify-start items-start w-full gap-2.5 bg-branco'>
+                    <Demand />
+                    <InvOpt />
+                </div>
+            </DashboardLayout>
+
     );
 };
 
