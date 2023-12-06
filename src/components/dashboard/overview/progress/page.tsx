@@ -5,6 +5,7 @@ import React from "react";
 const Progress = () => {
 
   return (
+  
     <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[ relative overflow-hidden gap-5">
       <p className="flex-grow-0 flex-shrink-0 text-2xl font-medium text-center text-[#151515]">
         Progresso da Farol
