@@ -6,6 +6,7 @@ import { StatusReportProps } from "~/components/common/StatusReport";
 import { StatusItemProps } from "~/components/common/StatusItem";
 import Progress from '~/components/dashboard/invOpt/progress/page';
 import DashboardComponent from "~/components/dashboard/invOpt/dashboardComponent/page";
+import InsightTable from "~/components/dashboard/invOpt/insightTable/page";
 
 const invOpt = () => {
     const items: StatusItemProps[] = [
@@ -30,8 +31,12 @@ const invOpt = () => {
     <DashboardLayout>
         <div className='flex flex-col h-full gap-y-5'>
             <div className='flex flex-row w-full justify-start gap-10'>
-                <div className='flex w-1/2'>
-                    <p className='text-2xl font-medium text-center text-[#151515]'>Insights Automatizados</p>
+                <div className='flex flex-col gap-10 w-1/2'>
+                    <p className='text-2xl font-medium text-[#151515]'>Insights Automatizados</p>
+                    <div className="flex flex-col items-center justify-between">
+                     <InsightTable></InsightTable>
+                    </div>
+                   
                 </div>
                 <Status items={items} report={report}></Status>
                 <Progress></Progress>

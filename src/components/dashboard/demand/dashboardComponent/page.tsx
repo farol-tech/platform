@@ -1,6 +1,6 @@
 import React from 'react';
-import DashInput from '~/components/dashboard/invOpt/dashInput/page';
-import InvOpt from '../../overview/invOpt/page';
+import DashInput from '~/components/dashboard/demand/dashInput/page';
+import Demand from '../../overview/demand/page';
 import { useState } from 'react';
 
 const DashboardComponent: React.FC = (userData) => {
@@ -141,7 +141,7 @@ const DashboardComponent: React.FC = (userData) => {
         <div>
             <p className='text-2xl font-medium text-[#151515] items-center'>Análise de Desempenho</p>
             <br/>
-            <div className='flex flex-row justify-between gap-10 bg-roxo_medio  rounded-3xl'>
+            <div className='flex flex-row justify-between gap-10 bg-bege_claro  rounded-3xl'>
                 <div className='ml-8 w-2/6 mt-8'>
                     <p className='font-medium text-[#151515] text-xl'>Filtros</p>
                     <br/>
@@ -169,7 +169,7 @@ const DashboardComponent: React.FC = (userData) => {
                             title='Lojas'
                             error={lojasErro}
                         />
-                        <button className='bg-roxo_claro w-40 text-center p-3 rounded-3xl font-medium mt-5 hover:border'
+                        <button className='bg-bege w-40 text-center p-3 rounded-3xl font-medium mt-5 hover:border'
                             onClick={OnSubmit}>
                                 Exportar Dados
                         </button>
@@ -177,7 +177,7 @@ const DashboardComponent: React.FC = (userData) => {
                     </div>
                 </div>
                 <div className='m-5 w-3/5'>
-                    <InvOpt/>
+                    <Demand/>
                 </div>
             </div>
         </div>

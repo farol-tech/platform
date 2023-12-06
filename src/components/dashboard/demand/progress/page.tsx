@@ -7,8 +7,8 @@ const Progress = () => {
       <p className="flex-grow-0 flex-shrink-0 text-2xl font-medium text-center text-[#151515]">
         Progresso
       </p>
-      <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[287px] overflow-hidden gap-5 p-5 rounded-[20px] bg-[#abb4ce]">
-        <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[200px] relative overflow-hidden gap-2.5 px-5 py-[15px] rounded-[20px] bg-[#f7f5eb]">
+      <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 h-[350px] overflow-hidden gap-5 p-5 rounded-[20px] bg-bege_claro">
+        <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[200px] relative overflow-hidden gap-2.5 px-5 py-[15px] rounded-[20px] bg-bege_claro">
           <svg
             width={50}
             height={50}
@@ -27,7 +27,7 @@ const Progress = () => {
             Previsão de Demanda
           </p>
           <p className="self-stretch flex-grow w-40 h-[61px] text-xs text-left text-[#151515]">
-            Integre os dados necessários para obter acesso a modelos automáticos
+            Converse com a equipe do marketing para obter informações sobre os efeitos de marketing nos negócios
           </p>
           <p className="flex-grow-0 flex-shrink-0 text-xs text-left text-[#151515]">
             0/3 etapas | 0% concluído
